@@ -14,4 +14,5 @@ import H̷o̷m̷e̷P̷a̷g̷e̷  SearchPage from './h̷o̷m̷e̷  search'
 .
 .
 .
-<H̷o̷m̷e̷P̷a̷g̷e̷  SearchPage searchword="some_word" />```
+<H̷o̷m̷e̷P̷a̷g̷e̷  SearchPage searchword="some_word" />
+```
