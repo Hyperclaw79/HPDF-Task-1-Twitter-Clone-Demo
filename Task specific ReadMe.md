@@ -1,9 +1,11 @@
+Before running the app, you need to install material-ui as a dependency. Enter this in the console:
+---
+```Javascript
+   npm i material-ui@latest```
+
 To watch the live version of the demo page: 
 ---
 Visit [The Hasura Deployed page](ui.jewel42.hasura-app.io)
-
-
-
 
 To access the searchpage, go to index.js, make these modificiations:
 ---
