@@ -1,15 +1,15 @@
 import React from 'react';
-import Paper from "material-ui/Paper"
-import {redA700} from "material-ui/styles/colors"
-import {Tab,Tabs} from "material-ui/Tabs"
+import Paper from "material-ui/Paper";
+import {redA700} from "material-ui/styles/colors";
+import {Tab,Tabs} from "material-ui/Tabs";
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import Divider from "material-ui/Divider"
-import FlatButton from "material-ui/FlatButton"
-import {TrendsBox,WhoToFollow,Feeds} from './Commons';
+import Divider from "material-ui/Divider";
+import FlatButton from "material-ui/FlatButton";
+import {TrendsBox,WhoToFollow,Feeds, UserCard} from './Commons';
 
 var tagJSON = [
 	{
@@ -283,8 +283,8 @@ class SearchPage extends React.Component {
 				</Paper>
 			</div>
 			<div className="Feed_container" style={{display:"inline-block",marginLeft:"50px"}}>
-			   <div className="Feeds" style={{marginTop:"-115px",marginLeft:"25px"}}>	
-				   <Feeds feedList={feedJSON}/>
+			   <div className="People-Feeds" style={{marginTop:"-115px",marginLeft:"25px"}}>
+				<Feeds feedList={feedJSON}/>
 			   </div>	   
 			   <Paper zDepth={3}
 				  className = "FilterBox" id = "FilterBox"

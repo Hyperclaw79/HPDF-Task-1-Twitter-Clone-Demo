@@ -260,16 +260,7 @@ export class WhoToFollow extends React.Component{
 				 <div>{this.props.userList.map((item)=>
 				 		<div className = 'UserPanelCondensed' id = {'upc'+(item.key+1).toString()} key = {(item.key+1).toString()}>
 							<UserCard id={"user_card"+(item.key+1).toString()} ref={"usercard"+(item.key+1).toString()}
-									Name={item.Name}
-									ava={item.ava} 
-									Tag={item.Tag} 
-									Cover={item.Cover} 
-									Theme= {item.Theme} 
-									Tweets={item.Tweets}
-									Status={item.Status}
-									FList={item.FollowerList} 
-									FlingCount={item.FlingCount} 
-									FlerCount={item.FlerCount} display={this.state.disp[item.key]?"block":"none"}/>		
+									data={item} display={this.state.disp[item.key]?"block":"none"}/>		
 							<Avatar id = {"ava"+(item.key+1).toString()} src = {item.ava} className = "avatars"
 									style={{width:'20%',height:'20%',marginRight:'5px',marginLeft:'10px',float:'left'}}
 									onMouseEnter={()=>this.flip_disp_on(item.key)}
@@ -293,7 +284,7 @@ export class WhoToFollow extends React.Component{
 export class UserCard extends React.Component{
 	constructor(props){
 		super(props);
-		var s=props.FList.toString();
+		var s=props.data.FollowerList.toString();
 		this.state={
 			FList:s
 		}
@@ -301,17 +292,17 @@ export class UserCard extends React.Component{
 
 	render(){
 		return(
-			<div id = {this.props.id} className="usercards" 
+			<div id = {this.props.data.id} className="usercards" 
 				style={{position:"absolute",display:this.props.display,width:"290px",height:"500px",
 					transition:"ease-in",marginTop:"60px",marginLeft:"25px"}}>
-				<img src = {this.props.Cover} className="coverImage" alt={this.props.Name+"'s Header Picture."}
+				<img src = {this.props.data.Cover} className="coverImage" alt={this.props.data.Name+"'s Header Picture."}
 						style={{position:"absolute",zIndex:"96",border:"1px ridge red",borderTop:"4px ridge red",width:"287px",height:"95px",
 						boxShadow:"-5px -5px 50px -5px #D50000"}}/>
 				<Paper zDepth={3} 
 					style={{backgroundColor:redA700,position:"absolute",top:"100px",
 					zIndex:"97",width:"288.5px",height:"230px",
 					boxShadow:"5px 5px 50px -5px #D50000"}}>
-					  <img src = {this.props.ava} alt={this.props.Name+"'s Avatar."}
+					  <img src = {this.props.data.ava} alt={this.props.data.Name+"'s Avatar."}
 							 style={{position:"absolute",top:"-36px",width:"72px",height:"72px",zIndex:'98',
 							 borderBottomLeftRadius:"50%",borderBottomRightRadius:"50%",
 							 borderTopLeftRadius:"50%",borderTopRightRadius:"50%",
@@ -321,26 +312,26 @@ export class UserCard extends React.Component{
 								style={{display: 'block', marginTop:'10px',marginRight:'10px', float:"right",borderBottomLeftRadius:'24px',borderBottomRightRadius:'24px',
 								borderTopLeftRadius:'24px',borderTopRightRadius:'24px',border:'0.5px solid white'}}/>
 						<div className="SelfNameTag" style={{height:"58px",clear:"both"}}>
-								<span style={{position:"absolute", display:"block",color:this.props.Theme,zIndex:"99",
+								<span style={{position:"absolute", display:"block",color:this.props.data.Theme,zIndex:"99",
 										paddingLeft:"10px",marginTop:"-5%"}}>
-										<h2>{this.props.Name}</h2>
+										<h2>{this.props.data.Name}</h2>
 								</span>
 								<span style={{position:"absolute",display:"block",color:'grey',zIndex:"99",
 										paddingLeft:"10px",marginTop:"3%"}}>		
-										<h3 style={{fontWeight:"normal"}}>{this.props.Tag}</h3>
+										<h3 style={{fontWeight:"normal"}}>{this.props.data.Tag}</h3>
 								</span>
 						</div>
-						<span style={{paddingLeft:"10px",color:this.props.Theme,display:"block"}}>{this.props.Status}</span>
+						<span style={{paddingLeft:"10px",color:this.props.data.Theme,display:"block"}}>{this.props.data.Status}</span>
 						<button disabled={true} style={{width:"74px",height:"16px",border:"none",marginTop:"16px",
 						 		color:"grey",backgroundColor:"rgba(0,0,0,0)"}}><strong style={{fontSize:"16px"}}>Tweets</strong></button> 		 
 					 	<button disabled={true} style={{width:"91px",height:"16px",border:"none",marginTop:"16px",
 						 		color:"grey",backgroundColor:"rgba(0,0,0,0)"}}><strong style={{fontSize:"16px"}}>Following</strong></button>
 						<button style={{width:"91px",height:"16px",border:"none",marginTop:"16px",
 						 		color:"grey",backgroundColor:"rgba(0,0,0,0)"}}><strong style={{fontSize:"16px",marginLeft:"10px"}}>Followers</strong></button>
-					 	<span style={{color:this.props.Theme,zIndex:'99'}}>
-					 			<strong style={{paddingLeft:"25px",textAlign:"center"}}>{this.props.Tweets}</strong>
-								<strong style={{paddingLeft:"50px",marginRight:"12px", textAlign:"center"}}>{this.props.FlingCount}</strong>
-								<strong style={{paddingLeft:"50px",marginRight:"16px",textAlign:"center"}}>{this.props.FlerCount}</strong>
+					 	<span style={{color:this.props.data.Theme,zIndex:'99'}}>
+					 			<strong style={{paddingLeft:"25px",textAlign:"center"}}>{this.props.data.Tweets}</strong>
+								<strong style={{paddingLeft:"50px",marginRight:"12px", textAlign:"center"}}>{this.props.data.FlingCount}</strong>
+								<strong style={{paddingLeft:"50px",marginRight:"16px",textAlign:"center"}}>{this.props.data.FlerCount}</strong>
 						</span>
 						<span style={{display:"block",marginTop:"10px",marginLeft:"10px"}}>Followed by <samp>{this.state.FList}</samp></span>
 				</Paper>
